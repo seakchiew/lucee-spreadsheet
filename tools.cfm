@@ -692,7 +692,7 @@ private boolean function rowIsEmpty( required row ){
 }
 
 private void function setCellValueAsType( required workbook,required cell,required value ){
-	if( IsNumeric( value ) AND !REFind( value,"^0[\d]+" ) ){ /*  skip numeric strings with leading zeroes. treat those as text  */
+	if( IsNumeric( value ) AND !REFind( "^0[\d]+",value ) ){ /*  skip numeric strings with leading zeroes. treat those as text  */
 		/*  NUMERIC  */
 		cell.setCellType( cell.CELL_TYPE_NUMERIC );
 		cell.setCellValue( JavaCast( "double",Val( value ) ) );
